@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #fdf6ec;
+  color: #1a1a1a;
+  overscroll-behavior-y: none;
+}
+
+img,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Tap feedback: every pressable scales to 0.97 on the very first frame (no JS on the critical path) --- */
+
+button,
+a[href],
+[role="button"] {
+  touch-action: manipulation;
+  transition: transform 90ms ease-out, background-color 150ms, color 150ms, opacity 150ms;
+}
+
+button:not(:disabled):not([aria-disabled="true"]):active,
+a[href]:active,
+[role="button"]:active {
+  transform: scale(0.97);
+}
+
+button[aria-disabled="true"],
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* --- Hide scrollbars on horizontal scrollers (recent documents, page strip) --- */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+}
+
+/* --- Shimmer skeleton (no spinners, per spec) --- */
+
+.skeleton-light {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(26, 26, 26, 0.06);
+}
+
+.skeleton-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(253, 246, 236, 0.9), transparent);
+  animation: shimmer-sweep 1.8s infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes shimmer-sweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* --- Mesh gradient blobs --- */
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@media (max-width: 767px) {
+  .mesh-blob {
+    filter: blur(40px);
+  }
+}
+
+/* --- Utility: gpu-accelerated animated layers --- */
+
+.transform-gpu-layer {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* --- Reduced motion: collapse everything to simple crossfades --- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.3s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Pause infinite animations when tab hidden (toggled via JS class) --- */
+
+.anim-paused * {
+  animation-play-state: paused !important;
+}
+
+/* --- driver.js dark theme overrides --- */
+.documind-driver-theme.driver-popover {
+  background-color: #1a1a2e !important;
+  color: #fff !important;
+  border-radius: 1.5rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+  padding: 1.5rem !important;
+  max-width: 340px !important;
+}
+
+.documind-driver-theme .driver-popover-title {
+  color: #fff !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.documind-driver-theme .driver-popover-description {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+.documind-driver-theme .driver-popover-footer {
+  margin-top: 1.5rem !important;
+}
+
+.documind-driver-theme .driver-popover-progress-text {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-weight: 500 !important;
+}
+
+.documind-driver-theme button.driver-popover-next-btn,
+.documind-driver-theme button.driver-popover-prev-btn {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+  transition: all 0.2s !important;
+}
+
+.documind-driver-theme button.driver-popover-next-btn {
+  background-color: #fff !important;
+  color: #1a1a2e !important;
+}
+
+.documind-driver-theme button.driver-popover-next-btn:hover {
+  opacity: 0.9 !important;
+}
+
+.documind-driver-theme button.driver-popover-prev-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.documind-driver-theme .driver-popover-close-btn {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.documind-driver-theme .driver-popover-close-btn:hover {
+  color: #fff !important;
+}
+.driver-popover-arrow {
+  display: none !important; /* Hide arrows for a cleaner floating look */
+}
+

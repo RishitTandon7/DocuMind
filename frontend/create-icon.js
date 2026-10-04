@@ -1,0 +1,17 @@
+const fs = require('fs');
+const path = require('path');
+
+const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#1a1a2e"/>
+  <rect x="140" y="100" width="220" height="280" rx="16" fill="#FDF6EC" opacity="0.9"/>
+  <rect x="160" y="80" width="220" height="280" rx="16" fill="#FDF6EC" opacity="0.7"/>
+  <rect x="180" y="60" width="220" height="300" rx="16" fill="#FDF6EC"/>
+  <rect x="200" y="120" width="140" height="12" rx="6" fill="#1a1a2e" opacity="0.3"/>
+  <rect x="200" y="148" width="100" height="8" rx="4" fill="#1a1a2e" opacity="0.2"/>
+  <rect x="200" y="168" width="120" height="8" rx="4" fill="#1a1a2e" opacity="0.2"/>
+  <circle cx="290" cy="280" r="60" fill="#F5C98E" opacity="0.85"/>
+  <text x="290" y="305" text-anchor="middle" font-size="72" font-weight="bold" fill="#1a1a2e" font-family="Arial, sans-serif">D</text>
+</svg>`;
+
+fs.writeFileSync(path.join('public', 'icon.svg'), svgContent);
+console.log('SVG icon written to public/icon.svg');

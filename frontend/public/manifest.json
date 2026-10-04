@@ -1,0 +1,64 @@
+{
+  "name": "DocuMind",
+  "short_name": "DocuMind",
+  "description": "Drop in a messy document and DocuMind restores, reads, and understands it — then answers your questions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a2e",
+  "background_color": "#FDF6EC",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Upload Document",
+      "short_name": "Upload",
+      "description": "Upload a new document or image",
+      "url": "/?action=upload",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Scan Document",
+      "short_name": "Scan",
+      "description": "Scan a document with your camera",
+      "url": "/scan",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Library",
+      "short_name": "Library",
+      "description": "View all your documents",
+      "url": "/documents",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
