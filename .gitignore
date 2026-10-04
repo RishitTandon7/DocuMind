@@ -1,0 +1,94 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+backend/.venv/
+
+# Node & Next.js
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+out/
+frontend/out/
+.turbo/
+*.tsbuildinfo
+frontend/tsconfig.tsbuildinfo
+
+# Environment variables & secrets
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env.local
+!*.example
+
+# Storage, uploads, temporary artifacts
+storage/uploads/*
+storage/processed/*
+!storage/uploads/.gitkeep
+!storage/processed/.gitkeep
+backend/storage/uploads/*
+backend/storage/processed/*
+backend/scratch/*
+
+# Local embedded tools and databases
+tools/
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs
+*.log
+backend/*.log
+backend-err.txt
+backend-log.txt
+frontend-log*.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Models & weight caches
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+.cache/
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/
