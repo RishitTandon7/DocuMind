@@ -1,0 +1,16 @@
+FACILITY B - DATA CENTER INFRASTRUCTURE INVENTORY
+Facility Code: US-WEST-DC2 | Rack ID: RACK-04
+Last Audited: February 2, 2025
+Auditor: Operations Engineering Team
+
+Hardware Configuration:
+- Server Name: titan-compute-node-01
+- Model: Dell PowerEdge R760xa
+- CPU: Dual 64-Core AMD EPYC 9554 Processors (128 cores total, 2.8GHz base)
+- System Memory: 256GB DDR5 ECC Registered RAM (8 x 32GB DIMMs)
+- Local Storage: 2x 960GB NVMe SSD (RAID-1 Boot) + 4x 3.84TB U.2 NVMe Data Storage
+- Network Interface: Dual-Port 10Gbps SFP+ Intel X710 Ethernet Adapter
+- Power Supply: Dual 1400W Redundant Titanium PSUs
+- Management: iDRAC9 Enterprise with Dedicated Management Port (IP: 10.240.12.44)
+
+Operational Status: ONLINE (Uptime: 142 days, 0 critical alerts)
